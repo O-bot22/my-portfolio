@@ -16,16 +16,17 @@ export default function EngineeringPortfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // TODO: format media as an array of objects so that multiple images can be shown as an automatically rotating slideshow
   const projects = [
     {
       id: 1,
       title: 'HPRC Rover',
       category: 'UAV Systems',
-      startDate: '20',
-      endDate: '20',
-      paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
+      startDate: '2024-08',
+      endDate: 'Present',
+      paragraphs: ['As division lead, I led a team of 40 engineering students to build an autonomous rover conformant to Space Dynamics Labratory (SDL) and NASA CubeSat specifications. The rover and payload lander vehicle flew in the WPI High Power Rocketry Club\'s supersonic 5" rocket up to 19,000 ft at the 2026 ESRA International Rocket Engineering Competition alongside 142 other teams from 13 countries. As a team mentor, I will assist new members and senior executives alike in the development of a rover capable of true 3D mapping and intelligent obstacle avoidance.', 'I oversaw Preliminary and Critical Design Reviews of all hardware and software. I weekly met with the executive board, the club officers, and payload sub-team leads to track progress and deadlines in tehcnical and interpersonal issues.', 'The payload deflated its parachute upon landing, self-righted the rover, released a latch mechanism, and then deployed the rover vehicle. Onboard footage from an OpenMV RT1062 captured the launch and landing sequence. A radio module capable of transmitting live video and receiving override remote control commands over 433MHz was tested up to 1 mile in a city, but not used at the launch. Data was collected on a separate test vehicle from a ToF (Time of Flight) camera, 2D scanning LiDAR, and a Nicla Vision module for analysis and training in the coming year (2026-2027).', 'All hardware was student reasearched and developed, either as 3D prints, CNC\'ed aluminum, or externally machined SLM titanium. Motors designed for use in combat robots (similar to BattleBots) were selected for the drivetrain for their high torque and environmental toughness. For structural components, 3D printed parts used PETG-CF to withstand the 20.8G\'s experienced during launch, and crucially, heat resistance to internal rocket temperatures up to a recorded 157DEGREEEE!!!!!!!!  F'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: '/projects/arena.png',
+      media: '/projects/IREC full team.jpg',
       mediaType: 'image'
     },
     {
@@ -43,19 +44,19 @@ export default function EngineeringPortfolio() {
       id: 3,
       title: 'Vacuum Tweezers',
       category: 'Robotics',
-      startDate: '202',
-      endDate: '202',
+      startDate: '2026-1',
+      endDate: 'Present',
       paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: null,
-      mediaType: null
+      media: "/projects/ToolFull.jpg",
+      mediaType: 'image'
     },
     {
       id: 4,
       title: 'Firewatch',
       category: 'Robotics',
-      startDate: '202',
-      endDate: '202',
+      startDate: '2021-08',
+      endDate: '2024-05',
       paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
       media: null,
