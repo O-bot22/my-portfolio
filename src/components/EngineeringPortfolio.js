@@ -17,10 +17,11 @@ export default function EngineeringPortfolio() {
   }, []);
 
   // TODO: format media as an array of objects so that multiple images can be shown as an automatically rotating slideshow
+  // TODO: add small boxes under the slideshow with links to media like technical reports, maybe links to github or onshape, google drive hosted pitch decks
   const projects = [
     {
       id: 1,
-      title: 'HPRC Rover',
+      title: 'Lunar Rover',
       category: 'UAV Systems',
       startDate: '2024-08',
       endDate: 'Present',
@@ -46,7 +47,7 @@ export default function EngineeringPortfolio() {
       category: 'Robotics',
       startDate: '2026-1',
       endDate: 'Present',
-      paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
+      paragraphs: [''],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
       media: "/projects/ToolFull.jpg",
       mediaType: 'image'
@@ -73,28 +74,28 @@ export default function EngineeringPortfolio() {
       media: null,
       mediaType: null
     },
-    {
-      id: 6,
-      title: 'Time Tracker',
-      category: 'Robotics',
-      startDate: '202',
-      endDate: '202',
-      paragraphs: ['Sensor integration, determining most important feactures for a product launch'],
-      tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: null,
-      mediaType: null
-    },
-    {
-      id: 7,
-      title: 'Among Us Replica',
-      category: 'Robotics',
-      startDate: '202',
-      endDate: '202',
-      paragraphs: ['Variety of environments, independent learner'],
-      tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: null,
-      mediaType: null
-    },
+    // {
+    //   id: 6,
+    //   title: 'Time Tracker',
+    //   category: 'Robotics',
+    //   startDate: '202',
+    //   endDate: '202',
+    //   paragraphs: ['Sensor integration, determining most important feactures for a product launch'],
+    //   tech: ['Technology 1', 'Technology 2', 'Technology 3'],
+    //   media: null,
+    //   mediaType: null
+    // },
+    // {
+    //   id: 7,
+    //   title: 'Among Us Replica',
+    //   category: 'Robotics',
+    //   startDate: '202',
+    //   endDate: '202',
+    //   paragraphs: ['Variety of environments, independent learner'],
+    //   tech: ['Technology 1', 'Technology 2', 'Technology 3'],
+    //   media: null,
+    //   mediaType: null
+    // },
   ];
 
   const courses = [
@@ -219,7 +220,7 @@ export default function EngineeringPortfolio() {
                 <Plane className="w-4 h-4" />
                 <span>UAV Systems</span>
               </div>
-              <div className="flex items-center gap-2 border border-cyan-400/30 px-4 py-2 rounded-full bg-cyan-400/5">
+              <div className="flex items-center gap-2 border border-blue-400/30 px-4 py-2 rounded-full bg-blue-400/5">
                 <Rocket className="w-4 h-4" />
                 <span>Aerospace Robotics</span>
               </div>
@@ -455,17 +456,19 @@ export default function EngineeringPortfolio() {
 
             <div className="p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700">
               <h3 className="text-2xl font-bold mb-4">Music Tastes</h3>
-              <p className="text-gray-400 mb-4">My listening spans indie rock, electronic, jazz, and ambient music — I enjoy artists who blend strong melody with interesting production.</p>
+              <p className="text-gray-400 mb-4">I love classic rock, grunge, and house music, learning about each in middle school, high school, and college repsectively (lol). Avant garde music also attracts me like Jimi Hendrix, The Velvet Underground, and hyperpop. I love concerts so shoot me a text if you've got something on the horizon.</p>
 
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30">Indie Rock</span>
-                <span className="px-3 py-1 bg-cyan-500/10 text-cyan-300 text-sm rounded-full border border-cyan-400/20">Electronic</span>
-                <span className="px-3 py-1 bg-purple-500/10 text-purple-300 text-sm rounded-full border border-purple-400/20">Jazz</span>
-                <span className="px-3 py-1 bg-slate-700/30 text-gray-200 text-sm rounded-full border border-slate-600">Ambient</span>
+                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30">Classic Rock</span>
+                <span className="px-3 py-1 bg-cyan-500/10 text-cyan-300 text-sm rounded-full border border-cyan-400/20">Hyperpop</span>
+                <span className="px-3 py-1 bg-green-700/30 text-green-200 text-sm rounded-full border border-green-600">Acoustic Folk</span>
+                <span className="px-3 py-1 bg-purple-500/10 text-purple-300 text-sm rounded-full border border-purple-400/20">Margaritaville</span>
+                <span className="px-3 py-1 bg-yellow-700/30 text-yellow-200 text-sm rounded-full border border-yellow-600">Recession Pop</span>
+                <span className="px-3 py-1 bg-pink-700/30 text-pink-200 text-sm rounded-full border border-pink-600">House</span>
               </div>
 
               <div className="mt-6 text-sm text-gray-400">
-                <p>Favorite artists: Radiohead, Tycho, Kamasi Washington, Beach House.</p>
+                <p>Favorite artists: Red Hot Chili Peppers, Billy Joel, Fred again.., The 502's</p>
               </div>
             </div>
           </div>
