@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { ChevronRight, Cpu, Waves, Plane, Users, Zap, Rocket, PocketKnife} from 'lucide-react';
 import Image from 'next/image';
+import { Analytics } from "@vercel/analytics/next"
 
 
 export default function EngineeringPortfolio() {
@@ -11,6 +12,7 @@ export default function EngineeringPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSlides, setActiveSlides] = useState({});
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isCollageOpen, setIsCollageOpen] = useState(false);
   const copyTimerRef = useRef(null);
 
   const SLIDESHOW_INVERVAL = 5000; // in ms
@@ -222,6 +224,94 @@ export default function EngineeringPortfolio() {
       console.error('Copy failed', error);
     }
   };
+
+  const robotCollage = [
+    {
+      src: '/collage/Monster Truck Firewatch.jpeg',
+      caption: 'Monster Truck Firewatch on display',
+      alt: 'Monster Truck Firewatch robot',
+    },
+    {
+      src: '/collage/Mudslide in cage.jpeg',
+      caption: 'Mudslide robot inside a test cage',
+      alt: 'Mudslide robot in a cage',
+    },
+    {
+      src: '/collage/NERF Turret.jpeg',
+      caption: 'NERF turret prototype ready for field use',
+      alt: 'NERF turret robot prototype',
+    },
+    {
+      src: '/collage/NHRL Workhorse Bot.jpeg',
+      caption: 'NHRL workhorse bot during testing',
+      alt: 'NHRL workhorse robot',
+    },
+    {
+      src: '/collage/Custom Arduino Boat.jpeg',
+      caption: 'Custom Arduino boat with sensor payload',
+      alt: 'Arduino powered custom boat',
+    },
+    {
+      src: '/collage/Printed Transmission.jpeg',
+      caption: '3D printed transmission component',
+      alt: 'Printed transmission part',
+    },
+    {
+      src: '/collage/Engineering Design Foam Car.jpeg',
+      caption: 'Foam car concept from engineering design',
+      alt: 'Engineering design foam car model',
+    },
+    {
+      src: '/collage/VEX bot.jpeg',
+      caption: 'VEX competition bot build',
+      alt: 'VEX competition robot',
+    },
+    {
+      src: '/collage/VEX Team Poster.jpeg',
+      caption: 'VEX team poster celebrating robotics competition achievements',
+      alt: 'VEX team poster',
+    },
+    {
+      src: '/collage/Open Mudslide.jpeg',
+      caption: 'Open chassis view of the Mudslide robot',
+      alt: 'Open Mudslide robot chassis',
+    },
+    {
+      src: '/collage/FRC Team Award.jpeg',
+      caption: 'Award recognition from the FRC team',
+      alt: 'FRC team award',
+    },
+    {
+      src: '/collage/Foamboard Firewatch.jpeg',
+      caption: 'Firewatch concept on foamboard presentation',
+      alt: 'Foamboard Firewatch design',
+    },
+    {
+      src: '/collage/Deltawing Firewatch.jpeg',
+      caption: 'Deltawing Firewatch aerodynamic prototype',
+      alt: 'Deltawing Firewatch project',
+    },
+    {
+      src: '/collage/Crash Firewatch.jpeg',
+      caption: 'Crash test image from Firewatch development',
+      alt: 'Crash Firewatch test',
+    },
+    {
+      src: '/collage/CFD of turbine.jpeg',
+      caption: 'CFD simulation of a turbine design',
+      alt: 'CFD of turbine',
+    },
+    {
+      src: '/collage/Better Combat Bot.jpeg',
+      caption: 'Improved combat bot prototype in action',
+      alt: 'Better Combat Bot prototype',
+    },
+    {
+      src: '/collage/Arduino Mario Screen.jpeg',
+      caption: 'Arduino-powered Mario display project',
+      alt: 'Arduino Mario screen',
+    },
+  ];
 
   useEffect(() => {
     return () => clearTimeout(copyTimerRef.current);
@@ -563,6 +653,50 @@ export default function EngineeringPortfolio() {
         </div>
       </section>
 
+      {/* Robot Collage Section */}
+      {/* <section id="robot-collage" className="relative py-16 px-6 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_25%),rgba(15,23,42,0.96)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-6 text-center">
+            <h2 className="text-4xl font-bold">
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Robot Collage
+              </span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+              A quick visual showcase of robots, prototypes, and build highlights that are worth seeing even without a full write-up.
+            </p>
+            <button
+              type="button"
+              aria-expanded={isCollageOpen}
+              onClick={() => setIsCollageOpen(!isCollageOpen)}
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-slate-900/80 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-800/90"
+            >
+              {isCollageOpen ? 'Hide collage' : 'Show collage'}
+            </button>
+          </div>
+
+          <div className={`overflow-hidden transition-all duration-500 ease-out ${isCollageOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-4">
+              {robotCollage.map((item, index) => (
+                <div key={index} className="group relative overflow-hidden rounded-3xl border border-slate-700 bg-slate-950/80 shadow-black/20 hover:border-blue-400/50 transition-all">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-x-0 bottom-0 p-3">
+                    <p className="text-sm text-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {item.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section> */}
+
       {/* Courses Section */}
       <section id="courses" className="relative py-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -683,6 +817,9 @@ export default function EngineeringPortfolio() {
           <p>© 2026 Owen Miller. Built for the challenge.</p>
         </div>
       </footer>
+
+      {/* Vercel Analytics */}
+      <Analytics/>
     </div>
   );
 }
