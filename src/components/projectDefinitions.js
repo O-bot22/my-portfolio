@@ -110,6 +110,11 @@ export const projectDefinitions = [
           src: '/projects/Firefly Sentry Bot.png',
           type: 'image',
           alt: 'Firefly Sentry project image'
+        },
+        {
+          src: '/projects/All Foam Firewatch.jpeg',
+          type: 'image',
+          alt: 'Firefly Sentry drone prototype image'
         }
       ]
     },

@@ -143,9 +143,10 @@ export default function EngineeringPortfolio() {
           <div className="flex items-center gap-2">
             <Image
               src="/headshot.jpg" // Path relative to the public folder
+              // src="/icon.jpg"
               alt="Picture of the author"
-              width={50}
-              height={50}
+              width={75}
+              height={75}
             />
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Owen Miller
