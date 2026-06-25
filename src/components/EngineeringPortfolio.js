@@ -13,6 +13,8 @@ export default function EngineeringPortfolio() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const copyTimerRef = useRef(null);
 
+  const SLIDESHOW_INVERVAL = 5000; // in ms
+
   const projects = useMemo(() => [
     {
       id: 1,
@@ -29,9 +31,24 @@ export default function EngineeringPortfolio() {
           alt: 'Full team photo from the IREC rover project'
         },
         {
+          src: '/projects/Rover CAD.png',
+          type: 'image',
+          alt: 'CAD rendering of rover'
+        },
+        {
           src: '/projects/Rover Deployed.png',
           type: 'image',
           alt: 'Payload exiting lander and driving around'
+        },
+        {
+          src: '/projects/Rover hotel floor.jpeg',
+          type: 'image',
+          alt: 'Payload self-righted'
+        },
+        {
+          src: '/projects/Rover sand test.jpeg',
+          type: 'image',
+          alt: 'Payload driving in sand'
         }
       ]
     },
@@ -128,7 +145,7 @@ export default function EngineeringPortfolio() {
         });
         return nextSlides;
       });
-    }, 5000);
+    }, SLIDESHOW_INVERVAL);
 
     return () => clearInterval(intervalId);
   }, [projects]);
