@@ -163,10 +163,10 @@ export const projectDefinitions = [
       id: 6,
       title: 'FRC Team',
       category: 'Robotics',
-      startDate: '202',
-      endDate: '202',
-      paragraphs: [''],
-      tech: [],
+      startDate: '2022-03',
+      endDate: '2023-05',
+      paragraphs: ['As the founder of FRC team 9216, I formed and led a team of 20 high school students to design, build, and program a robot for the FIRST Robotics Competition (FRC). The team competed in the 2023 Waterbury Regional Competition, and the Hartford District Competition, where we won the Rookie of the Year award. I mentored students in mechanical design, electrical systems, and programming, and helped them develop skills in teamwork, problem-solving, and project management.', 'As one of my most rewarding roles, I made strong friendships with great engineers. I loved the level of owenship each team member was able to hold over the project. Since we had little advisor oversight or assistance from other teams, we found it incredibly exciting that every problem we were solving was novel to us.', 'In addition to competing in FRC, we built robotic displays for a local church. The displays were used to demonstrate the capabilities of robotics and inspire young students to pursue STEM education.', 'My favorite aspect of working on the FRC team was how many hats I got to wear. From having zoom calls with the superintendent of the district to holding team elections to reflashing the main controller at 3am, I covered tasks in every discipline. Experiencing this variety firsthand inspired me to pursue robotics, where I could capitalize on my love for the integration of diverse engineering components'],
+      tech: ['Team 9216'],
       media: [
         {
           src: '/projects/FRC Robot Team Picture.JPEG',
@@ -177,6 +177,16 @@ export const projectDefinitions = [
           src: '/projects/FRC Team Award.jpeg',
           type: 'image',
           alt: 'FRC Team award photo with Rookie of the Year award'
+        },
+        {
+          src: '/projects/FRC Robot Cafeteria.jpeg',
+          type: 'image',
+          alt: 'FRC robot demo during a lunch period'
+        },
+        {
+          src: '/projects/FRC Robot 3am.jpeg',
+          type: 'image',
+          alt: 'FRC robot being tested'
         }
       ]
     },
