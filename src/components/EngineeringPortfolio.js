@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { ChevronRight, Cpu, Waves, Plane, Users, Zap, Rocket, PocketKnife} from 'lucide-react';
 import Image from 'next/image';
 
@@ -9,26 +9,31 @@ export default function EngineeringPortfolio() {
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSlides, setActiveSlides] = useState({});
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const copyTimerRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // TODO: format media as an array of objects so that multiple images can be shown as an automatically rotating slideshow
-  // TODO: add small boxes under the slideshow with links to media like technical reports, maybe links to github or onshape, google drive hosted pitch decks
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: 'Lunar Rover',
       category: 'UAV Systems',
       startDate: '2024-08',
       endDate: 'Present',
-      paragraphs: ['As division lead, I led a team of 40 engineering students to build an autonomous rover conformant to Space Dynamics Labratory (SDL) and NASA CubeSat specifications. The rover and payload lander vehicle flew in the WPI High Power Rocketry Club\'s supersonic 5" rocket up to 19,000 ft at the 2026 ESRA International Rocket Engineering Competition alongside 142 other teams from 13 countries. As a team mentor, I will assist new members and senior executives alike in the development of a rover capable of true 3D mapping and intelligent obstacle avoidance.', 'I oversaw Preliminary and Critical Design Reviews of all hardware and software. I weekly met with the executive board, the club officers, and payload sub-team leads to track progress and deadlines in tehcnical and interpersonal issues.', 'The payload deflated its parachute upon landing, self-righted the rover, released a latch mechanism, and then deployed the rover vehicle. Onboard footage from an OpenMV RT1062 captured the launch and landing sequence. A radio module capable of transmitting live video and receiving override remote control commands over 433MHz was tested up to 1 mile in a city, but not used at the launch. Data was collected on a separate test vehicle from a ToF (Time of Flight) camera, 2D scanning LiDAR, and a Nicla Vision module for analysis and training in the coming year (2026-2027).', 'All hardware was student reasearched and developed, either as 3D prints, CNC\'ed aluminum, or externally machined SLM titanium. Motors designed for use in combat robots (similar to BattleBots) were selected for the drivetrain for their high torque and environmental toughness. For structural components, 3D printed parts used PETG-CF to withstand the 20.8G\'s experienced during launch, and crucially, heat resistance to internal rocket temperatures up to a recorded 157DEGREEEE!!!!!!!!  F'],
+      paragraphs: ['As division lead, I led a team of 40 engineering students to build an autonomous rover conformant to Space Dynamics Labratory (SDL) and NASA CubeSat specifications. The rover and payload lander vehicle flew in the WPI High Power Rocketry Club\'s supersonic 5" rocket up to 19,000 ft at the 2026 ESRA International Rocket Engineering Competition alongside 142 other teams from 13 countries. As a team mentor, I will assist new members and senior executives alike in the development of a rover capable of true 3D mapping and intelligent obstacle avoidance.', 'I oversaw Preliminary and Critical Design Reviews of all hardware and software. I weekly met with the executive board, the club officers, and payload sub-team leads to track progress and deadlines in tehcnical and interpersonal issues.', 'The payload deflated its parachute upon landing, self-righted the rover, released a latch mechanism, and then deployed the rover vehicle. Onboard footage from an OpenMV RT1062 captured the launch and landing sequence. A radio module capable of transmitting live video and receiving override remote control commands over 433MHz was tested up to 1 mile in a city, but not used at the launch. Data was collected on a separate test vehicle from a ToF (Time of Flight) camera, 2D scanning LiDAR, and a Nicla Vision module for analysis and training in the coming year (2026-2027).', 'All hardware was student reasearched and developed, either as 3D prints, CNC\'ed aluminum, or externally machined SLM titanium. Motors designed for use in combat robots (similar to BattleBots) were selected for the drivetrain for their high torque and environmental toughness. For structural components, 3D printed parts used PETG-CF to withstand the 20.8G\'s experienced during launch, and crucially, heat resistance to internal rocket temperatures up to a recorded 157°F'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: '/projects/IREC full team.jpg',
-      mediaType: 'image'
+      media: [
+        {
+          src: '/projects/IREC full team.jpg',
+          type: 'image',
+          alt: 'Full team photo from the IREC rover project'
+        },
+        {
+          src: '/projects/Rover Deployed.png',
+          type: 'image',
+          alt: 'Payload exiting lander and driving around'
+        }
+      ]
     },
     {
       id: 2,
@@ -36,10 +41,15 @@ export default function EngineeringPortfolio() {
       category: 'Product Development',
       startDate: '2025-03',
       endDate: '2026-01',
-      paragraphs: ["Worked with the largest combat robotic league in the U.S. over three physical prototypes to develop a live datalogging system for use in livestreams. The project started out of a shared desire among two of my peer engineers to spread STEM education by growing the combat robotics sport.", "Was awarded a $1,500 stipend for completition of the UConn Propelus NSF I-Corps program. In those rewarding seven weeks, my team and I interviewed 21 potential customers. End results were a functional leading-edge transmitter capable of +-200G force sensing, -20F to +200F temperature sensor, and smoothed quaternion orientation tracking. Paired with a custom portable reciever with an LED display, the alpha prototype was functional, but ultimately found not to be economically viable without external support.", "Bridged tech development and user experience to deploy live combat robotics monitoring systems. Partnered with a team of engineers to build custom sensor-integrated PCBs for the nation's top combat robotics organization. Successfully navigated three design iterations driven by intensive customer discovery, learning firsthand how to deploy resilient technology under extreme, unpredictable field conditions"],
+      paragraphs: ["Worked with the largest combat robotic league in the U.S. over three physical prototypes to develop a live datalogging system for use in livestreams. The project started out of a shared desire among two of my peer engineers to spread STEM education by growing the combat robotics sport.", "Was awarded a $1,500 stipend for completition of the UConn Propelus NSF I-Corps program. In those rewarding seven weeks, my team and I interviewed 21 potential customers. End results were a functional leading-edge transmitter capable of +-200G force sensing, -20°F to +200°F temperature sensor, and smoothed quaternion orientation tracking. Paired with a custom portable reciever with an LED display, the alpha prototype was functional, but ultimately found not to be economically viable without external support.", "Bridged tech development and user experience to deploy live combat robotics monitoring systems. Partnered with a team of engineers to build custom sensor-integrated PCBs for the nation's top combat robotics organization. Successfully navigated three design iterations driven by intensive customer discovery, learning firsthand how to deploy resilient technology under extreme, unpredictable field conditions"],
       tech: [],
-      media: "/projects/ARENA Board.png",
-      mediaType: 'image'
+      media: [
+        {
+          src: '/projects/ARENA Board.png',
+          type: 'image',
+          alt: 'ARENA Robotics datalogging system board'
+        }
+      ]
     },
     {
       id: 3,
@@ -49,8 +59,13 @@ export default function EngineeringPortfolio() {
       endDate: 'Present',
       paragraphs: [''],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: "/projects/ToolFull.jpg",
-      mediaType: 'image'
+      media: [
+        {
+          src: '/projects/ToolFull.jpg',
+          type: 'image',
+          alt: 'Vacuum tweezers project full tool image'
+        }
+      ]
     },
     {
       id: 4,
@@ -60,8 +75,7 @@ export default function EngineeringPortfolio() {
       endDate: '2024-05',
       paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: null,
-      mediaType: null
+      media: []
     },
     {
       id: 5,
@@ -71,8 +85,7 @@ export default function EngineeringPortfolio() {
       endDate: '202',
       paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: null,
-      mediaType: null
+      media: []
     },
     // {
     //   id: 6,
@@ -96,7 +109,70 @@ export default function EngineeringPortfolio() {
     //   media: null,
     //   mediaType: null
     // },
-  ];
+  ], []);
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveSlides((prevSlides) => {
+        const nextSlides = { ...prevSlides };
+        projects.forEach((project) => {
+          if (Array.isArray(project.media) && project.media.length > 0) {
+            const currentIndex = prevSlides[project.id] ?? 0;
+            nextSlides[project.id] = (currentIndex + 1) % project.media.length;
+          }
+        });
+        return nextSlides;
+      });
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [projects]);
+
+  const changeSlide = (projectId, delta) => {
+    setActiveSlides((prevSlides) => {
+      const project = projects.find((project) => project.id === projectId);
+      if (!project?.media?.length) {
+        return prevSlides;
+      }
+      const currentIndex = prevSlides[projectId] ?? 0;
+      return {
+        ...prevSlides,
+        [projectId]: (currentIndex + delta + project.media.length) % project.media.length,
+      };
+    });
+  };
+
+  const copyEmail = async (email) => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'absolute';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      setCopiedEmail(true);
+      clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = window.setTimeout(() => setCopiedEmail(false), 2000);
+    } catch (error) {
+      console.error('Copy failed', error);
+    }
+  };
+
+  useEffect(() => {
+    return () => clearTimeout(copyTimerRef.current);
+  }, []);
 
   const courses = [
     { name: 'RBE3002', code: 'CODE 101', focus: 'Key Focus Area' },
@@ -332,29 +408,67 @@ export default function EngineeringPortfolio() {
 
                   <div className="items-start relative bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700 group-hover:border-blue-500/30 transition-all max-w-[600px] mx-auto">
                     {/* Enforces a uniform aspect-video box for the grid layout */}
-                    <div className="aspect-video w-full flex items-center justify-center bg-slate-950">
-                      {project.media ? (
-                        project.mediaType === 'video' ? (
-                          <video 
-                            src={project.media} 
-                            controls 
-                            preload="metadata"
-                            playsInline
-                            className="w-full h-full object-contain" 
-                            suppressHydrationWarning
+                    <div className="aspect-video w-full flex items-center justify-center bg-slate-950 relative">
+                      {Array.isArray(project.media) && project.media.length > 0 ? (
+                        (() => {
+                          const activeIndex = activeSlides[project.id] ?? 0;
+                          const activeMedia = project.media[activeIndex];
+                          return activeMedia?.type === 'video' ? (
+                            <video 
+                              src={activeMedia.src} 
+                              controls 
+                              preload="metadata"
+                              playsInline
+                              className="w-full h-full object-contain" 
+                              suppressHydrationWarning
+                            >
+                              Your browser does not support the video tag.
+                            </video>
+                          ) : (
+                            <img 
+                              src={activeMedia.src} 
+                              alt={activeMedia.alt ?? project.title}
+                              className="w-full h-full object-contain" 
+                            />
+                          );
+                        })()
+                      ) : null}
+
+                      {Array.isArray(project.media) && project.media.length > 1 ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => changeSlide(project.id, -1)}
+                            className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-800/80 p-2 text-slate-100 hover:bg-slate-700/90 transition"
+                            aria-label="Previous slide"
                           >
-                            Your browser does not support the video tag.
-                          </video>
-                        ) : (
-                          <img 
-                            src={project.media} 
-                            alt={project.title}
-                            className="w-full h-full object-contain" 
-                          />
-                        )
+                            <ChevronRight className="w-5 h-5 rotate-180" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => changeSlide(project.id, 1)}
+                            className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-slate-800/80 p-2 text-slate-100 hover:bg-slate-700/90 transition"
+                            aria-label="Next slide"
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </button>
+                          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-gray-200">
+                            <span>
+                              {`Slide ${(activeSlides[project.id] ?? 0) + 1} / ${project.media.length}`}
+                            </span>
+                            <div className="flex gap-2">
+                              {project.media.map((_, dotIndex) => (
+                                <span
+                                  key={dotIndex}
+                                  className={`h-2 w-2 rounded-full ${dotIndex === (activeSlides[project.id] ?? 0) ? 'bg-blue-400' : 'bg-slate-600/80'}`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </>
                       ) : null}
                     </div>
-                    
+
                     {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" /> */}
                   </div>
 
@@ -433,23 +547,23 @@ export default function EngineeringPortfolio() {
               <p className="text-gray-400 mb-4">I enjoy exploring the outdoors and capturing moments on hikes, coastal trips, and weekend camping. Below is a small gallery of recent photos.</p>
 
               <div className="grid grid-cols-3 gap-2">
-                <a href="/hobbies/outdoor1.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor1.jpg" alt="Outdoors 1" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Owen Skiing Switzerland.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Owen Skiing Switzerland.jpeg" alt="Outdoors 1" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
-                <a href="/hobbies/outdoor2.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor2.jpg" alt="Outdoors 2" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Owen and Dad sailing.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Owen and Dad sailing.jpeg" alt="Outdoors 2" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
-                <a href="/hobbies/outdoor3.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor3.jpg" alt="Outdoors 3" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Owen Fishing On Boat.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Owen Fishing On Boat.jpeg" alt="Outdoors 3" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
-                <a href="/hobbies/outdoor4.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor4.jpg" alt="Outdoors 4" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Owen Geroge Kunaal Skiing.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Owen Geroge Kunaal Skiing.jpeg" alt="Outdoors 4" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
-                <a href="/hobbies/outdoor5.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor5.jpg" alt="Outdoors 5" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Owen on beach with sandwich.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Owen on beach with sandwich.jpeg" alt="Outdoors 5" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
-                <a href="/hobbies/outdoor6.jpg" target="_blank" rel="noreferrer">
-                  <img src="/hobbies/outdoor6.jpg" alt="Outdoors 6" className="w-full h-24 object-cover rounded-md border border-slate-700" />
+                <a href="/hobbies/Costa Rica Volcano Family.jpeg" target="_blank" rel="noreferrer">
+                  <img src="/hobbies/Costa Rica Volcano Family.jpeg" alt="Outdoors 6" className="w-full h-24 object-cover rounded-md border border-slate-700" />
                 </a>
               </div>
             </div>
@@ -487,14 +601,24 @@ export default function EngineeringPortfolio() {
             I'm actively seeking opportunities where I can contribute to innovative autonomous vehicle projects and take on leadership roles in challenging technical environments.
           </p>
           <div className="flex gap-4 justify-center pt-6">
-            <button  className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
-              <a href="mailto:owenrmiller@gmail.com">owenrmiller@gmail.com</a>
+            <button
+              type="button"
+              aria-label="Copy email address to clipboard"
+              onClick={() => copyEmail('owenrmiller@gmail.com')}
+              className={`px-8 py-3 rounded-lg font-semibold transition-all transform ${copiedEmail ? 'bg-emerald-500/90 text-slate-950' : 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105'}`}
+            >
+              {copiedEmail ? 'Copied to clipboard!' : 'owenrmiller@gmail.com'}
             </button>
-            <button className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all">
+            <a
+              href="https://www.linkedin.com/in/owen-miller-68a47a201/"
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all"
+            >
               LinkedIn
-            </button>
+            </a>
             <button className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all">
-            +1 (203) 997-6128
+              +1 (203) 997-6128
             </button>
           </div>
         </div>
