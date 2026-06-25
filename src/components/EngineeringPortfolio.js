@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { ChevronRight, Cpu, Waves, Plane, Users, Zap, Rocket, PocketKnife} from 'lucide-react';
+import { ChevronRight, Cpu, Waves, Plane, Users, Zap, Rocket, PocketKnife } from 'lucide-react';
 import Image from 'next/image';
 import { Analytics } from "@vercel/analytics/next"
 import { robotCollage } from './robotCollageData';
@@ -86,19 +86,19 @@ export default function EngineeringPortfolio() {
   }, []);
 
   const courses = [
-    { name: 'RBE3002', code: 'CODE 101', focus: 'Key Focus Area' },
-    { name: 'RBE3001', code: 'CODE 201', focus: 'Key Focus Area' },
-    { name: 'RBE2002', code: 'CODE 301', focus: 'Key Focus Area' },
-    { name: 'Sof Eng', code: 'CODE 401', focus: 'Key Focus Area' },
-    { name: 'Course Name 5', code: 'CODE 501', focus: 'Key Focus Area' },
-    { name: 'Course Name 6', code: 'CODE 601', focus: 'Key Focus Area' }
+    { name: 'Unified Robotics IV: Navigation', code: 'RBE 3002', focus: 'Navigation, position estimation and communications. Concepts of dead reckoning, landmark updates, inertial sensors, and radio location will be explored. Control systems as applied to navigation will be presented. Communication, remote control and remote sensing for mobile robots and tele-robotic systems' },
+    { name: 'Unified Robotics III: Manipulation', code: 'RBE 3001', focus: 'Coordinated motion of multiple actuators to execute complex manipulation tasks in the physical space. Trajectory planning, robot forces and dynamics, computer vision. Construction and programming of a vision-guided, multi degree of freedom robotic manipulator' },
+    { name: 'Unified Robotics II: Sensing and Perception', code: 'RBE 2002', focus: 'Signal transduction, interface circuitry, and physical integration. Performance improvements through signal conditioning, digital filtering, calibration, parameter selection, and sensor fusion.' },
+    { name: 'Software Engineering', code: 'CS 3733', focus: 'Built a demo website for Mass General Bringham Hospital. Techniques for building medium to large-scale software systems. JIRA, two-week sprints, daily standups, PERN stack' },
+    { name: 'Social Entrepreneurship', code: 'ETR 2900', focus: 'Case studies and discussions of public benefit corporations (B-Corps). Business and entrepreneurial tools that can be applied to the design of sustainable social business models. Topics include social opportunity recognition and evaluation, business models in the social sector, social impact assessment, the double-bottom line, scalability of solutions, organizational forms and structures, and social venture financing' },
+    { name: 'Swarm Intelligence', code: 'RBE 511', focus: 'Mathematical, computational, and biological self-organization and feedback systems. Common swarm algorithms for task allocation, collective motion, and collective decisionmaking. Optimization algorithms inspired by swarm intelligence.' }
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-gray-100 overflow-x-hidden">
       {/* Animated Background Grid */}
       <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
@@ -153,47 +153,47 @@ export default function EngineeringPortfolio() {
             </span>
           </div>
 
-            {/* Mobile toggle */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-expanded={isMenuOpen}
-                aria-label="Toggle menu"
-                className="p-2 rounded-md bg-slate-800/50 hover:bg-slate-800/60 transition"
-              >
-                {isMenuOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
-              </button>
-            </div>
-
-            {/* Desktop links */}
-            <div className="hidden md:flex gap-6">
-              <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">About</a>
-              <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Projects</a>
-              <a href="#courses" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Courses</a>
-              <a href="#hobbies" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Hobbies</a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Contact</a>
-            </div>
+          {/* Mobile toggle */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle menu"
+              className="p-2 rounded-md bg-slate-800/50 hover:bg-slate-800/60 transition"
+            >
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
 
-          {/* Mobile menu (collapsible) */}
-          <div className={`md:hidden transition-max-height duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0' } bg-slate-900/90 border-t border-blue-500/10`}>
-            <div className="px-6 py-4 flex flex-col gap-3">
-              <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">About</a>
-              <a href="#projects" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Projects</a>
-              <a href="#courses" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Courses</a>
-              <a href="#hobbies" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Hobbies</a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Contact</a>
-            </div>
+          {/* Desktop links */}
+          <div className="hidden md:flex gap-6">
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">About</a>
+            <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Projects</a>
+            <a href="#courses" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Courses</a>
+            <a href="#hobbies" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Hobbies</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-blue-400 transition-colors">Contact</a>
           </div>
-        </nav>
+        </div>
+
+        {/* Mobile menu (collapsible) */}
+        <div className={`md:hidden transition-max-height duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0'} bg-slate-900/90 border-t border-blue-500/10`}>
+          <div className="px-6 py-4 flex flex-col gap-3">
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">About</a>
+            <a href="#projects" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Projects</a>
+            <a href="#courses" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Courses</a>
+            <a href="#hobbies" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Hobbies</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Contact</a>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
@@ -214,7 +214,7 @@ export default function EngineeringPortfolio() {
               </div>
             </div>
           </div>
-          
+
           <h1 className="text-6xl md:text-7xl font-bold leading-tight">
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Engineering Innovation
@@ -222,7 +222,7 @@ export default function EngineeringPortfolio() {
             <br />
             <span className="text-gray-200">in Autonomous Systems</span>
           </h1>
-          
+
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Passionate about pushing the boundaries of autonomous vehicle technology, with expertise in UAVs and marine systems. Seeking challenging opportunities where leadership meets cutting-edge innovation.
           </p>
@@ -231,12 +231,12 @@ export default function EngineeringPortfolio() {
             <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
               View Projects
             </button>
-            <a 
-                href="/resume.pdf" 
-                download="Miller, Owen - Resume 2025.pdf"
-                className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all inline-block"
-                >
-                Download Resume
+            <a
+              href="/resume.pdf"
+              download="Miller, Owen - Resume 2025.pdf"
+              className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all inline-block"
+            >
+              Download Resume
             </a>
           </div>
 
@@ -294,10 +294,10 @@ export default function EngineeringPortfolio() {
               Featured Projects
             </span>
           </h2>
-          
+
           <div className="space-y-12 items-start">
             {projects.map((project, index) => (
-              <div 
+              <div
                 key={project.id}
                 className="group relative items-start bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all hover:shadow-xl hover:shadow-blue-500/10"
               >
@@ -327,21 +327,21 @@ export default function EngineeringPortfolio() {
                           const activeIndex = activeSlides[project.id] ?? 0;
                           const activeMedia = project.media[activeIndex];
                           return activeMedia?.type === 'video' ? (
-                            <video 
-                              src={activeMedia.src} 
-                              controls 
+                            <video
+                              src={activeMedia.src}
+                              controls
                               preload="metadata"
                               playsInline
-                              className="w-full h-full object-contain" 
+                              className="w-full h-full object-contain"
                               suppressHydrationWarning
                             >
                               Your browser does not support the video tag.
                             </video>
                           ) : (
-                            <img 
-                              src={activeMedia.src} 
+                            <img
+                              src={activeMedia.src}
                               alt={activeMedia.alt ?? project.title}
-                              className="w-full h-full object-contain" 
+                              className="w-full h-full object-contain"
                             />
                           );
                         })()
@@ -475,10 +475,10 @@ export default function EngineeringPortfolio() {
               Relevant Coursework
             </span>
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course, index) => (
-              <div 
+              <div
                 key={index}
                 className="p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-blue-500/40 transition-all hover:transform hover:scale-105"
               >
@@ -589,7 +589,7 @@ export default function EngineeringPortfolio() {
       </footer>
 
       {/* Vercel Analytics */}
-      <Analytics/>
+      <Analytics />
     </div>
   );
 }
