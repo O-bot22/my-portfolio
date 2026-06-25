@@ -89,7 +89,7 @@ export default function EngineeringPortfolio() {
       category: 'Robotics',
       startDate: '2026-1',
       endDate: 'Present',
-      paragraphs: [''],
+      paragraphs: ['Cofounded a direct to consumer robotics startup to develop a vacuum tweezer system for use in electronics assembly. The system is designed to be a low-cost, high-precision alternative to traditional pick-and-place machines, with the goal of making electronics assembly more accessible to hobbyists and small businesses.', 'Led the design and development of the vacuum tweezer system, including the mechanical design, control system, and user manual. Conducted extensive testing and iteration to ensure the system met performance and reliability requirements. Sourced 25 parts across 7 suppliers, including custom machined components, to build the first functional prototype. Implemented safety features to prevent damage to delicate components during operation.', 'Generated a 30 step instruction guide with CAD renderings and photographs to assist users in assembling and operating the vacuum tweezer system. The guide includes detailed instructions for each step, as well as troubleshooting tips and safety precautions.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
       media: [
         {
