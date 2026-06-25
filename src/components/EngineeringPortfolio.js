@@ -65,6 +65,21 @@ export default function EngineeringPortfolio() {
           src: '/projects/ARENA Board.png',
           type: 'image',
           alt: 'ARENA Robotics datalogging system board'
+        },
+        {
+          src: '/projects/AI datalogging at combat robotics.png',
+          type: 'image',
+          alt: 'ARENA Robotics datalogging system in action at a combat robotics event'
+        },
+        {
+          src: '/projects/datalogging dashboard.png',
+          type: 'image',
+          alt: 'ARENA Robotics datalogging dashboard'
+        },
+        {
+          src: '/projects/ARENA team.jpeg',
+          type: 'image',
+          alt: 'ARENA Robotics team photo'
         }
       ]
     },
@@ -78,21 +93,42 @@ export default function EngineeringPortfolio() {
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
       media: [
         {
-          src: '/projects/ToolFull.jpg',
+          src: '/projects/ToolFull transparent bg.png',
           type: 'image',
           alt: 'Vacuum tweezers project full tool image'
+        },
+        {
+          src: '/projects/No Background Closeup Pic.png',
+          type: 'image',
+          alt: 'Vacuum tweezers project close-up image'
+        },
+        {
+          src: '/projects/Cover off picture.png',
+          type: 'image',
+          alt: 'Vacuum tweezers project cover off image'
         }
       ]
     },
     {
       id: 4,
-      title: 'Firewatch',
+      title: 'Firefly Sentry',
       category: 'Robotics',
       startDate: '2021-08',
       endDate: '2024-05',
       paragraphs: ['Overview of your robotics or automation project, emphasizing innovation, technical depth, and real-world applications.'],
       tech: ['Technology 1', 'Technology 2', 'Technology 3'],
-      media: []
+      media: [
+        {
+          src: '/projects/Firefly Sentry System.png',
+          type: 'image',
+          alt: 'Firefly Sentry project image'
+        },
+        {
+          src: '/projects/Firefly Sentry Bot.png',
+          type: 'image',
+          alt: 'Firefly Sentry project image'
+        }
+      ]
     },
     {
       id: 5,
@@ -470,7 +506,7 @@ export default function EngineeringPortfolio() {
                             <ChevronRight className="w-5 h-5" />
                           </button>
                           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-gray-200">
-                            <span>
+                            <span className="bg-slate-950/90 px-3 py-1 rounded-full border border-slate-700/80">
                               {`Slide ${(activeSlides[project.id] ?? 0) + 1} / ${project.media.length}`}
                             </span>
                             <div className="flex gap-2">
