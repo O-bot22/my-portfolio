@@ -309,6 +309,7 @@ export default function EngineeringPortfolio() {
                     <h3 className="text-3xl font-bold">{project.title}</h3>
                     <div className="text-sm text-gray-400 mt-1">{project.startDate} — {project.endDate}</div>
                     {project.paragraphs.map((words, index) => (<p key={index} className="text-gray-400 leading-relaxed">{words}</p>))}
+                    {project.title == "Mapping Energy Poverty" ? (<a href="https://o-bot22.github.io/map/?lang=en" target="_blank">Check out the live site here!</a>) : null}
                     <div className="flex flex-wrap gap-2 pt-4">
                       {project.tech.map((tech, i) => (
                         <span key={i} className="px-3 py-1 bg-slate-700/50 rounded-md text-sm text-gray-300 border border-slate-600">
