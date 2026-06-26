@@ -112,7 +112,7 @@ export const projectDefinitions = [
           alt: 'ARENA Robotics datalogging system in action at a combat robotics event'
         },
         {
-          src: '/projects/datalogging dashboard.png',
+          src: '/projects/Datalogging dashboard.png',
           type: 'image',
           alt: 'ARENA Robotics datalogging dashboard'
         },
