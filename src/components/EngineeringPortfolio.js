@@ -233,11 +233,11 @@ export default function EngineeringPortfolio() {
             </button>
             <a
               href="/resume.pdf"
-              download="Miller, Owen - Resume 2025.pdf"
+              download="Miller, Owen 2026 - Lunar Rover.pdf"
               className="px-8 py-3 border border-blue-400/30 rounded-lg font-semibold hover:bg-blue-400/10 transition-all inline-block"
             >
               Download Resume
-            </a>
+            </a>  
           </div>
 
           <div className="flex gap-8 justify-center pt-12 text-sm">
