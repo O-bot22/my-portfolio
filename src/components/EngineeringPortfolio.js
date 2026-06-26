@@ -184,7 +184,7 @@ export default function EngineeringPortfolio() {
         </div>
 
         {/* Mobile menu (collapsible) */}
-        <div className={`md:hidden transition-max-height duration-300 overflow-hidden ${isMenuOpen ? 'max-h-60' : 'max-h-0'} bg-slate-900/90 border-t border-blue-500/10`}>
+        <div className={`md:hidden transition-max-height duration-300 overflow-hidden ${isMenuOpen ? 'max-h-80' : 'max-h-0' } bg-slate-900/90 border-t border-blue-500/10`}>
           <div className="px-6 py-4 flex flex-col gap-3">
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">About</a>
             <a href="#projects" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-100 hover:text-blue-400">Projects</a>
@@ -196,7 +196,7 @@ export default function EngineeringPortfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-40 md:pt-20">
         <div className="max-w-5xl text-center space-y-8 relative z-10">
           <div className="inline-block mb-4">
             <div className="flex gap-4 text-sm text-blue-400">
@@ -228,7 +228,7 @@ export default function EngineeringPortfolio() {
           </p>
 
           <div className="flex gap-4 justify-center items-center pt-6">
-            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105">
+            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105" onClick={() => {window.location.href = window.location.origin + "#projects"}}>
               View Projects
             </button>
             <a
@@ -259,7 +259,7 @@ export default function EngineeringPortfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative py-24 px-6">
+      <section id="about" className="relative py-34 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -287,7 +287,7 @@ export default function EngineeringPortfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative py-24 px-6 bg-slate-900/30">
+      <section id="projects" className="relative scroll-mt-40 md:scroll-mt-20 py-14 px-6 bg-slate-900/30">
         <div className="max-w-6xl mx-auto items-start">
           <h2 className="text-4xl font-bold mb-16 text-center">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -468,7 +468,7 @@ export default function EngineeringPortfolio() {
       </section> */}
 
       {/* Courses Section */}
-      <section id="courses" className="relative py-24 px-6">
+      <section id="courses" className="scroll-mt-40 md:scroll-mt-20 relative py-14 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-16 text-center">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -492,7 +492,7 @@ export default function EngineeringPortfolio() {
       </section>
 
       {/* Hobbies Section */}
-      <section id="hobbies" className="relative py-24 px-6 bg-slate-900/20">
+      <section id="hobbies" className="relative scoll-mt-40 md:scroll-mt-20 py-14 px-6 bg-slate-900/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 text-center">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Hobbies & Interests</span>
@@ -547,7 +547,7 @@ export default function EngineeringPortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative py-24 px-6 bg-slate-900/30">
+      <section id="contact" className="relative scroll-mt-20 py-14 px-6 bg-slate-900/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-4xl font-bold">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -557,7 +557,7 @@ export default function EngineeringPortfolio() {
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             I'm actively seeking opportunities where I can contribute to innovative autonomous vehicle projects and take on leadership roles in challenging technical environments.
           </p>
-          <div className="flex gap-4 justify-center pt-6">
+          <div className="flex flex-wrap gap-4 justify-center pt-6">
             <button
               type="button"
               aria-label="Copy email address to clipboard"
