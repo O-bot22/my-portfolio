@@ -50,11 +50,6 @@ export const robotCollage = [
     alt: 'Open Mudslide robot chassis',
   },
   {
-    src: '/collage/FRC Team Award.jpeg',
-    caption: 'Award recognition from the FRC team',
-    alt: 'FRC team award',
-  },
-  {
     src: '/collage/Foamboard Firewatch.jpeg',
     caption: 'Firewatch concept on foamboard presentation',
     alt: 'Foamboard Firewatch design',

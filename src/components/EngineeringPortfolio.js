@@ -385,87 +385,20 @@ export default function EngineeringPortfolio() {
                     {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" /> */}
                   </div>
 
-                  {/* <div className="relative bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700 group-hover:border-blue-500/30 transition-all">
-                    <div className="aspect-video flex items-center justify-center max-width:600px">
-                      {project.media ? (
-                        project.mediaType === 'video' ? (
-                          <video 
-                            src={project.media} 
-                            controls 
-                            preload="metadata"
-                            playsInline
-                            className="w-full h-full object-cover"
-                            suppressHydrationWarning
-                          >
-                            Your browser does not support the video tag.
-                          </video>
-                        ) : (
-                          <img 
-                            src={project.media} 
-                            alt={project.title}
-                            className="w-full height:auto object-cover"
-                          />
-                        )
-                      ) : (
-                        <div className="text-center space-y-2">
-                          <div className="w-16 h-16 mx-auto bg-blue-500/10 rounded-lg flex items-center justify-center border border-blue-500/30">
-                            <Cpu className="w-8 h-8 text-blue-400" />
-                          </div>
-                          <p className="text-sm text-gray-500">Insert Project Image/Video</p>
-                        </div>
-                      )}
-                    </div>
-                  </div> */}
+                  
                 </div>
               </div>
             ))}
+            <div className="grid md:grid-cols-2 gap-8 p-8 items-start">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold">More Projects</h3>
+                    <p>For more visuals and smaller projects, please visit the <a href="/collage"><u>collage page</u></a>.</p>
+                  </div>
+              </div>
           </div>
         </div>
       </section>
 
-      {/* Robot Collage Section */}
-      {/* <section id="robot-collage" className="relative py-16 px-6 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_25%),rgba(15,23,42,0.96)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-6 text-center">
-            <h2 className="text-4xl font-bold">
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Robot Collage
-              </span>
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mt-4">
-              A quick visual showcase of robots, prototypes, and build highlights that are worth seeing even without a full write-up.
-            </p>
-            <button
-              type="button"
-              aria-expanded={isCollageOpen}
-              onClick={() => setIsCollageOpen(!isCollageOpen)}
-              className="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-slate-900/80 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-800/90"
-            >
-              {isCollageOpen ? 'Hide collage' : 'Show collage'}
-            </button>
-          </div>
-
-          <div className={`overflow-hidden transition-all duration-500 ease-out ${isCollageOpen ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-4">
-              {robotCollage.map((item, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-3xl border border-slate-700 bg-slate-950/80 shadow-black/20 hover:border-blue-400/50 transition-all">
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute inset-x-0 bottom-0 p-3">
-                    <p className="text-sm text-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {item.caption}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Courses Section */}
       <section id="courses" className="scroll-mt-40 md:scroll-mt-20 relative py-14 px-6">
